@@ -1,0 +1,58 @@
+/* 
+    General Styles
+*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+
+*{
+    overflow-x: hidden;
+}
+.container-custom{
+    min-height: 100vh;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    color: inherit;
+}
+h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900 !important;
+    font-size: 3.5rem;
+}
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 900 !important;
+
+}
+.pvu-price{
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+}
+.banner-details{
+    height: 700px !important;
+    align-self: center;
+}
+.banner-cta{
+    width: 200px;
+    color: white !important;
+    border-color: white !important;
+}
+.banner-diclaimer{
+    bottom: 50px;
+    left: 0;
+    right: 0;
+}
+.mobile-disclaimer{
+    p{
+        font-size: 0.8rem !important;
+    }
+}
+@media only screen and (max-width: 500px){
+    h1{font-size: 2rem;}
+    .banner-disclaimer{
+        bottom: 200px
+    }
+}
