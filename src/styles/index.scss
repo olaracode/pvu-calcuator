@@ -27,6 +27,21 @@ p{
     font-weight: 900 !important;
 
 }
+.pvu-price-mobile{
+    font-size: 1rem;
+}
+.form-modal{
+    position: absolute;
+    top: 50vh !important;
+    right: 50% !important;
+}
+.glass{
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+}
 .pvu-price{
     font-size: 1.25rem !important;
     font-weight: 800 !important;

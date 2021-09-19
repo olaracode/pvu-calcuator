@@ -10,6 +10,8 @@ import "../styles/index.scss";
 
 //import your own components
 import Layout from "./layout";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 //render your react application
 ReactDOM.render(<Layout />, document.querySelector("#app"));

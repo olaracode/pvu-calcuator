@@ -1,16 +1,17 @@
 import React, { useContext, useState } from "react";
-import { IconButton, Snackbar, Button } from "@material-ui/core";
-import { CloseSharp } from "@material-ui/icons";
+import Slider from "react-slick";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
-import MuiAlert from "@material-ui/lab/Alert";
+import { IconButton, Button } from "@material-ui/core";
+import { CloseSharp } from "@material-ui/icons";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-export const Plant = props => {
-	const [open, setOpen] = useState(false);
+const PlantMobile = props => {
 	const { store, actions } = useContext(Context);
+
+	const [open, setOpen] = useState(false);
 	const handleClick = () => {
 		setOpen(true);
 	};
@@ -18,36 +19,32 @@ export const Plant = props => {
 		if (reason === "clickaway") {
 			return;
 		}
-
 		setOpen(false);
 	};
 	const handleDelete = () => {
 		actions.deletePlant(props.plant.id);
 		setOpen(false);
 	};
-	console.log(props.plant.id);
 	return (
-		<div className="col-lg-4 col-sm-12 my-3">
-			<div className={"rounded border p-3 m-auto"}>
-				<div className="d-flex justify-content-end">
-					<IconButton onClick={() => handleClick()}>
-						<CloseSharp />
-					</IconButton>
-				</div>
+		<div className="rounded border p-3 m-3 glass">
+			<div className="d-flex justify-content-end">
+				<IconButton onClick={() => handleClick()}>
+					<CloseSharp />
+				</IconButton>
+			</div>
 
-				<h4 className="text-center">{props.plant.name}</h4>
-				<hr className="mx-3" />
-				<div className="d-flex justify-content-around">
-					<p>{props.plant.le} le</p>
-					<p>{props.plant.hrs} hrs</p>
-				</div>
+			<h4 className="text-center">{props.plant.name}</h4>
+			<hr className="mx-3" />
+			<div className="d-flex justify-content-around">
+				<p>{props.plant.le} le</p>
+				<p>{props.plant.hrs} hrs</p>
 			</div>
 			<Dialog
 				open={open}
 				onClose={handleClose}
 				aria-labelledby="alert-dialog-title"
 				aria-describedby="alert-dialog-description">
-				<DialogTitle id="alert-dialog-title">{"¿Esta seguro que desea eliminar esta planta?"}</DialogTitle>
+				<DialogTitle id="alert-dialog-title">{"¿Esta seguro que desea eliminar esta planta??"}</DialogTitle>
 				<DialogActions>
 					<Button onClick={handleClose} color="primary">
 						Cancelar
@@ -60,7 +57,19 @@ export const Plant = props => {
 		</div>
 	);
 };
-Plant.propTypes = {
-	plant: PropTypes.object,
-	mobile: PropTypes.bool
+
+export const Carousel = () => {
+	const { store, actions } = useContext(Context);
+
+	return (
+		<>
+			{store.plants.map((plant, key) => {
+				return <PlantMobile key={key} plant={plant} />;
+			})}
+		</>
+	);
+};
+
+PlantMobile.propTypes = {
+	plant: PropTypes.object
 };
