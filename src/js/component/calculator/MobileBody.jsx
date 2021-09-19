@@ -26,7 +26,7 @@ export const MobileBody = () => {
 			id: Math.floor(Math.random() * 10000) + 1
 		};
 		actions.addPlant(newPlant);
-		handleClose()
+		handleClose();
 	};
 	const handleSetName = name => {
 		if (name === "Sapling") {
