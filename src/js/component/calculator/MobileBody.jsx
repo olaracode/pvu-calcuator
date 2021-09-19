@@ -26,6 +26,7 @@ export const MobileBody = () => {
 			id: Math.floor(Math.random() * 10000) + 1
 		};
 		actions.addPlant(newPlant);
+		handleClose()
 	};
 	const handleSetName = name => {
 		if (name === "Sapling") {
@@ -99,7 +100,7 @@ export const MobileBody = () => {
 										/>
 									</div>
 									<div className="my 3 d-flex justify-content-end">
-										<Button onClick={handleOpen} endIcon={<AddSharp />}>
+										<Button onClick={(e)=>handleCreate(e)} endIcon={<AddSharp />}>
 											Agregar
 										</Button>
 									</div>
